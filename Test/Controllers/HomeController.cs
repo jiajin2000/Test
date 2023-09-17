@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,6 +18,44 @@ namespace Test.Controllers
             var model = db.Departments;
             return View(model);
         }
+        public ActionResult onea()
+        {
+            
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult onea(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                try
+                {
+                    using (var reader = new StreamReader(file.InputStream))
+                    {
+                        string fileContent = reader.ReadToEnd();
+                        ViewBag.FileContent = fileContent;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Error = "An error occurred: " + ex.Message;
+                }
+            }
+            else
+            {
+                ViewBag.Error = "Please select a file to upload.";
+            }
+
+            return View();
+        }
+
+        public ActionResult oneb()
+        {
+            var model = db.Departments;
+            return View(model);
+        }
+
         public ActionResult YoungestAndEldest()
         {
             var model = db.Departments;

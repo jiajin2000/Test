@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Test.Models.Department>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        .margin {
+            margin: 10px 10px 0 10px;
+        }
+    </style>
+    <meta charset="utf-8" name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>oneb</title>
+</head>
+<body>
+    <div class="margin">
+        <h1>One B</h1>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Designation</th>
+            </tr>
+            @foreach (var d in Model)
+            {
+                <tr>
+                    <td>@d.EmployeeProfile.Id</td>
+                    <td>@d.EmployeeProfile.Name</td>
+                    <td>@d.EmployeeProfile.Age</td>
+                    <td>@d.Designation</td>
+                </tr>
+            }
+        </table>
+
+        <div>
+            <a href="/home"><button class="btn btn-default">Back</button></a>
+
+            <a href="@Url.Action("YoungestAndEldest", "Home")"><button class="btn btn-default">Youngest and Eldest Employee</button></a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        .margin {
+            margin: 10px 10px 0 10px;
+        }
+    </style>
+    <meta charset="utf-8" name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>onea</title>
+</head>
+<body>
+    <div class="margin">
+        <h1>One A</h1>
+        <h3>Upload File</h3>
+
+        <form class="form" method="post" enctype="multipart/form-data">
+            @Html.ValidationSummary(true)
+
+            <label>Text File</label>
+            <div>
+                <input type="file" name="file" accept="text/plain" />
+                <br />
+                <input type="submit" value="Upload" />
+            </div>
+
+
+
+        </form>
+        <br />
+
+
+        <h2>File Content</h2>
+
+        <div id="fileContent">
+            <table>
+                @if (ViewBag.FileContent != null)
+                {
+                    <pre>@Html.Raw(ViewBag.FileContent)</pre>
+                }
+            </table>
+        </div>
+
+
+
+        <br />
+        <a href="/home"><button class="btn btn-default">Back</button></a>
+        </div>
+</body>
+</html>

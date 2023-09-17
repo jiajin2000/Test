@@ -15,27 +15,11 @@
 <body>
     <div class="margin">
         <h1>Index</h1>
-        <table class="table table-striped">
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Designation</th>
-            </tr>
-            @foreach (var d in Model)
-            {
-                <tr>
-                    <td>@d.EmployeeProfile.Id</td>
-                    <td>@d.EmployeeProfile.Name</td>
-                    <td>@d.EmployeeProfile.Age</td>
-                    <td>@d.Designation</td>
-                </tr>
-            }
-        </table>
+        
 
         <div>
-            <button class="btn btn-default">Browse Text Files</button>
-            <a href="@Url.Action("YoungestAndEldest", "Home")"><button class="btn btn-default">Youngest and Eldest Employee</button></a>
+            <a href="@Url.Action("onea", "Home")"><button class="btn btn-default">Question 1a</button></a>
+            <a href="@Url.Action("oneb", "Home")"><button class="btn btn-default">Question 1b</button></a>
         </div>
     </div>
 </body>
